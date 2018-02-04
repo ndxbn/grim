@@ -7,7 +7,7 @@ yum -y install https://centos7.iuscommunity.org/ius-release.rpm
 yum -y groupinstall "Development Tools"
 
 yum -y install \
-  bash-completion-extras
+  bash-completion-extras \
   jq
 
 # `yum swap git`
