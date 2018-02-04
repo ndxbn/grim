@@ -11,6 +11,7 @@ Vagrant.configure("2") do |config|
   # installing manually : They are installed under /usr/local
   config.vm.provision :shell, name: "docker-compose" ,path: "./script/install-docker-compose.sh"
   config.vm.provision :shell, name: "hub", path: "./script/install-hub.sh"
+  config.vm.provision :shell, name: "stow", path: "./script/install-stow.sh"
 
   # testing
   config.vm.provision :shell, name: "test", path: "./tests/command-exists.sh", privileged: false
