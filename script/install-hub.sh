@@ -1,24 +1,22 @@
 #!/bin/bash
 set -eu
-CWD=`pwd`
+work_dir=`mktemp -dp /var/tmp`
+pushd ${work_dir}
 
-# get latest hub binary archive URL for Linux 64-bit machine
+# download latest hub binary tarball
 src_url=$(curl -s https://api.github.com/repos/github/hub/releases/latest |\
   jq  -r '.assets[] | select (.label | contains("Linux 64-bit")) | .browser_download_url'
 )
+wget -q -O hub-latest.tgz ${src_url}
 
-# download latest hub binary tar ball
-HUB_TGZ_FILE_NAME="${CWD}/hub.tgz"
-wget -q -O ${HUB_TGZ_FILE_NAME} ${src_url}
-
-# run install script
-work_dir=`mktemp -dp /var/tmp`
-tar -C ${work_dir} -xzf ${HUB_TGZ_FILE_NAME}
-mv ${work_dir}/**/* ${work_dir}
-${work_dir}/install
+# extract and installing
+mkdir hub
+tar -C hub -xzf hub-latest.tgz
+mv hub/**/* hub/
+./hub/install
 # bash completion
-cp ${work_dir}/etc/hub.bash_completion.sh /etc/profile.d/
+cp hub/etc/hub.bash_completion.sh /etc/profile.d/
 
 # tear down
+popd
 rm -rf ${work_dir}
-rm -f ${HUB_TGZ_FILE_NAME}
