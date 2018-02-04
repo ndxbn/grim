@@ -9,4 +9,4 @@ type jq
 type docker
 type dockerd
 type docker-compose
-docker-compose --version
+docker-compose version
