@@ -9,3 +9,9 @@ yum -y groupinstall "Development Tools"
 yum -y install \
   bash-completion-extras
   jq
+
+# `yum swap git`
+# installed via "Development Tools" group,
+# reinstall from IUS repository.
+yum remove -y git
+yum install -y git2u-all
