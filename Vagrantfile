@@ -12,5 +12,5 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "./script/install-docker-compose.sh"
 
   # testing
-  config.vm.provision :shell, path: "./tests/command-exists.sh"
+  config.vm.provision :shell, path: "./tests/command-exists.sh", privileged: false
 end
