@@ -8,7 +8,8 @@ yum -y groupinstall "Development Tools"
 
 yum -y install \
   bash-completion-extras \
-  jq
+  jq \
+  wget
 
 # `yum swap git`
 # installed via "Development Tools" group,
