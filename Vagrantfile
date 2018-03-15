@@ -4,6 +4,11 @@ Vagrant.configure("2") do |config|
   # config.vm.provision :shell, path: ""
   # config.vm.provision :shell, path: "", privileged: false
 
+  config.vm.provider "virtualbox" do |v|
+      v.memory = 4096
+      v.cpus = 4
+  end
+
   # pre-install
   config.vm.provision :shell, inline: "yum -y update"
   # installing via OS package manager
