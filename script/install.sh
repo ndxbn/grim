@@ -9,6 +9,7 @@ yum -y groupinstall "Development Tools"
 yum -y install \
   bash-completion-extras \
   jq \
+  redis40u \
   wget
 
 # `yum swap git`
