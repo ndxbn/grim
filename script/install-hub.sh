@@ -4,9 +4,7 @@ work_dir=`mktemp -dp /var/tmp`
 pushd ${work_dir}
 
 # download latest hub binary tarball
-src_url=$(curl -s https://api.github.com/repos/github/hub/releases/latest |\
-  jq  -r '.assets[] | select (.label | contains("Linux 64-bit")) | .browser_download_url'
-)
+src_url="https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz"
 wget -q -O hub-latest.tgz ${src_url}
 
 # extract and installing

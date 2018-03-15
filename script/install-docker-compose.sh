@@ -1,9 +1,7 @@
 #!/bin/bash
 set -eu
 
-version=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | \
-  jq  -r '.name'
-)
+version="1.19.0"
 
 # see https://docs.docker.com/compose/install/
 curl -L https://github.com/docker/compose/releases/download/${version}/docker-compose-`uname -s`-`uname -m` \
