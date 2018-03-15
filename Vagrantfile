@@ -13,6 +13,9 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, name: "hub", path: "./script/install-hub.sh"
   config.vm.provision :shell, name: "stow", path: "./script/install-stow.sh"
 
+  # install under /home/vagrant
+  config.vm.provision :shell, name: "anyenv", path: "./script/install-anyenv.sh", privileged: false
+
   # testing
   config.vm.provision :shell, name: "test", path: "./tests/command-exists.sh", privileged: false
 end

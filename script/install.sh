@@ -29,3 +29,16 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 yum install -y docker-ce
 systemctl start docker && systemctl enable docker
 
+# PHP 7.x
+yum -y install \
+  bzip2-devel \
+  libcurl-devel \
+  libicu-devel \
+  libjpeg-turbo-devel \
+  libpng-devel \
+  libtidy-devel \
+  libxml2-devel \
+  libxslt-devel \
+  openssl-devel \
+  re2c-devel \
+  readline-devel
