@@ -20,7 +20,7 @@ yum install -y git2u-all
 
 # docker
 ## only docker-ce.
-## docker-compose will be installed manually.
+## docker-compose will be installed without package manager.
 yum install -y \
   yum-utils \
   device-mapper-persistent-data \
